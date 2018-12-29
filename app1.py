@@ -7,6 +7,10 @@ def translate(word):
     word = word.lower()
     if word in data:
         return data[word]
+    elif word.title() in data:
+        return data[word.title()]
+    elif word.upper():
+        return data[word.upper()]
     elif len(get_close_matches(word, data.keys())) >> 0:
         yn = input("Did you mean {} instead? Enter Y if yes, or N if no: ".format(get_close_matches(word, data.keys())[0]))
         if yn == "Y":
